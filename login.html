@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+
+  {% block body %}
+  {% if session['api_session_token'] %}
+
+  You're logged in already!
+
+  {% else %}
+
+  <br>
+  <form action="" method="post">
+    <div class="login">
+    <div class="login-screen">
+    <div class="app-title">
+      <h1>FLOORCENTER</h1>
+    </div>
+    <div class="login-form">
+    <div class="control-group">
+    <input type="text" class="login-field" placeholder="Username" name="username" value="{{
+      request.form.username }}">
+    <label class="login-field-icon fui-user" for="login-name"></label></div>
+    <div class="control-group">
+     <input type="password" class="login-field" placeholder="Password" name="password" value="{{
+      request.form.password }}">
+    <label class="login-field-icon fui-lock" for="login-pass"></label></div>
+    <input class="btn btn-default" type="submit" value="Login" class="btn btn-primary btn-large btn-block">
+  </form>{% endif %}
+      {% endblock %}
+    </div>
+</div>
+</div>
+
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>

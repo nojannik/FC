@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Flask Intro - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/sidebar.css" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+
+{% block body %}
+{% if session['api_session_token'] %}
+
+  <div class="sidebar">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+
+<center>
+<tr><td>{{ i['product_id'] }}</td></tr>
+</center>
+
+{% else %}
+Login first
+{% endif %}
+{% endblock %}
+  </body>
+</html>
