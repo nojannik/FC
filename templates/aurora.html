@@ -46,6 +46,13 @@
 				<li><a class="codrops-icon codrops-icon-drop" href="http://"><span>Edit item</span></a></li>
 			</ul>
 			<header>
+		<form action="" method="get">
+
+    <!--<input type="checkbox" name="incoming" value="{{incoming}}">
+		<input type="checkbox" name="outgoing" value="{{outgoing}}"> -->
+		<input type="text" name="date" value="{{request.form.date}}">
+		<input type="submit" value="Login" class="btn btn-primary btn-large btn-block">
+	</form>
         <table id="table_id" class="display">
 
           <thead>
@@ -57,12 +64,10 @@
               </tr>
           </thead>
           <tbody>
-            {% for product in product_list %}
+            {% for product in movements %}
               <tr>
-                  <td><font color="black">{{product['ref'] }}</td>
-                  <td><font color="black">{{product['length'] }}x{{product['width'] }}x{{product['height'] }}</td>
-                  <td><font color="black">{{product['label'] }}</td>
-                  <td><font color="black">{{product['price'] }}</td>
+                  <td><font color="black">{{product['product_id'] }}</td>
+                  <td><font color="black">{{product['qty'] }}</td>
               </tr>
               {% endfor %}
           </tbody>
@@ -79,12 +84,10 @@
 		    $('#table_id').DataTable();
 		} );
 		</script>
-		
 		{% else %}
-		<strong>Oops</strong>
-		{% endif %}
 		{% if error %}
-		{{ error }} Login First
+		{{ error }} Login first
+		{% endif %}
 		{% endif %}
 		{% endblock %}
 	</body>

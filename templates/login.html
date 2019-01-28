@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Flask Intro - login page</title>
+    <title>Login Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css" type="text/css">
   </head>
@@ -10,7 +10,7 @@
   {% block body %}
   {% if session['api_session_token'] %}
 
-  You're logged in already!
+  You're logged in already! Go to <a href="/panel">panel</a>
 
   {% else %}
 
@@ -43,3 +43,45 @@
     </div>
   </body>
 </html>
+
+<!--
+{
+    "socid": "15",
+    "statut": "0",
+    "lines": [
+      {
+        "fk_product": "47854",
+        "tva_tx": "0.000",
+        "qty": "100",
+        "desc": "",
+        "subprice": "144.00000000",
+        "remise_percent": "5"
+      },
+      {
+        "fk_product": ,
+        "tva_tx": ,
+        "qty": ,
+        "desc": ,
+        "subprice": ,
+        "remise_percent":
+      },
+      {
+        "fk_product": ,
+        "tva_tx": ,
+        "qty": ,
+        "desc": ,
+        "subprice": ,
+        "remise_percent":
+      },
+],
+    "array_options": {
+      "options_sino": "1234565"
+    }
+}
+
+
+{
+"product_id": 47853, "warehouse_id": 1, "qty": 1, "movementcode": "INV123", "movementlabel": "Inventory 123"
+}
+
+-->

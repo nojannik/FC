@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="/static/style.css" />
 		<script src="/static/js/modernizr.custom.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 		<script
@@ -46,27 +47,28 @@
 				<li><a class="codrops-icon codrops-icon-drop" href="http://"><span>Edit item</span></a></li>
 			</ul>
 			<header>
-        <table id="table_id" class="display">
-
-          <thead>
-              <tr>
-                  <th>Item</th>
-                  <th>Size</th>
-                  <th>Description</th>
-                  <th>Price</th>
-              </tr>
-          </thead>
-          <tbody>
-            {% for product in product_list %}
-              <tr>
-                  <td><font color="black">{{product['ref'] }}</td>
-                  <td><font color="black">{{product['length'] }}x{{product['width'] }}x{{product['height'] }}</td>
-                  <td><font color="black">{{product['label'] }}</td>
-                  <td><font color="black">{{product['price'] }}</td>
-              </tr>
-              {% endfor %}
-          </tbody>
-      </table>
+				<form action="" method="post">
+					<div class="login">
+					<div class="login-screen">
+					<div class="app-title">
+						<h1>Add new product</h1>
+					</div>
+					<div class="login-form">
+					<div class="control-group">
+					<input type="text" class="login-field" placeholder="Item Code" name="ref" value="{{
+						request.form.ref }}">
+					<label class="login-field-icon fui-user" for="login-name"></label></div>
+					<div class="control-group">
+					 <input type="text" class="login-field" placeholder="Description" name="label" value="{{
+						request.form.label }}">
+						<div class="control-group">
+							<input type="text" class="login-field" placeholder="size" name="size" value="{{
+							request.form.size }}">
+									<input type="text" class="login-field" placeholder="price" name="price" value="{{
+ 									request.form.price }}">
+					<label class="login-field-icon fui-lock" for="login-pass"></label></div>
+					<input class="btn btn-default" type="submit" value="Send" class="btn btn-primary btn-large btn-block">
+				</form>
 
 			</header>
 		</div><!-- /container -->
@@ -79,7 +81,7 @@
 		    $('#table_id').DataTable();
 		} );
 		</script>
-		
+
 		{% else %}
 		<strong>Oops</strong>
 		{% endif %}
