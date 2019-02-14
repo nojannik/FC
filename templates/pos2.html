@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Floor Center</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css" />
+		<script src="/static/js/modernizr.custom.js"></script>
+
+	</head>
+
+
+	<body>
+		{% block body %}
+		{% if session['api_session_token'] %}
+<style>
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+.right {
+  right: 0;
+  background-color: red;
+}
+
+</style>
+<div class="split left">
+<table id="table_id" class="display">
+
+		<thead>
+				<tr>
+						<th>Item</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>More</th>
+				</tr>
+		</thead>
+		<tbody>
+			{% for product in product_list %}
+				<tr>
+						<td><font color="blue"><b>{{product['id']}}</b></td>
+						<td><font color="green">{{product['ref'] }}</td>
+						<td><font color="black">{{product['label'] }}</td>
+						<td><font color="black">{{product['price'] }}</td>
+
+				{% endfor %}
+		</tbody>
+</table>
+
+<div class="split right">
+		<h2>NEW ORDER</h2>
+
+			<form action="" method="post">
+			<div class="login-form">
+			<div class="control-group">
+			 <input type="text" class="login-field" placeholder="ITEM 1" name="item1" value="{{
+				request.form.item1 }}">
+			 <input type="text" class="login-field" placeholder="PRICE 1" name="price1" value="{{
+				 request.form.price1 }}">
+			 <input type="text" class="login-field" placeholder="QUANTITY 1" name="qty1" value="{{
+					request.form.quantity1 }}">
+			 <input type="text" class="login-field" placeholder="DISCOUNT 1" name="discount1" value="{{
+					 request.form.discount1 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 2" name="item2" value="{{
+						request.form.item2 }}">
+					<input type="text" class="login-field" placeholder="PRICE 2" name="price2" value="{{
+						request.form.price2 }}">
+					<input type="text" class="login-field" placeholder="QUANTITY 2" name="qty2" value="{{
+						request.form.quantity2 }}">
+					<input type="text" class="login-field" placeholder="DISCOUNT 2" name="discount2" value="{{
+						request.form.discount2 }}">
+
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 3" name="item3" value="{{
+						request.form.item3 }}">
+					<input type="text" class="login-field" placeholder="PRICE 3" name="price3" value="{{
+						request.form.price3 }}">
+					<input type="text" class="login-field" placeholder="QUANTITY 3" name="qty3" value="{{
+						request.form.quantity3 }}">
+					<input type="text" class="login-field" placeholder="DISCOUNT 3" name="discount3" value="{{
+						request.form.discount3 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 4" name="item4" value="{{
+						request.form.item4 }}">
+					<input type="text" class="login-field" placeholder="PRICE 4" name="price4" value="{{
+						request.form.price4 }}">
+					<input type="text" class="login-field" placeholder="QUANTITY 4" name="qty4" value="{{
+						request.form.quantity4 }}">
+					<input type="text" class="login-field" placeholder="DISCOUNT 4" name="discount4" value="{{
+						request.form.discount4 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 5" name="item5" value="{{
+						request.form.item5 }}">
+					<input type="text" class="login-field" placeholder="PRICE 5" name="price5" value="{{
+						request.form.price5 }}">
+					<input type="text" class="login-field" placeholder="QUANTITY 5" name="qty5" value="{{
+						request.form.quantity5 }}">
+					<input type="text" class="login-field" placeholder="DISCOUNT 5" name="discount5" value="{{
+						request.form.discount5 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 6" name="item6" value="{{
+						request.form.item6 }}">
+					<input type="text" class="login-field" placeholder="PRICE 6" name="price6" value="{{
+						request.form.price6 }}">
+					<input type="text" class="login-field" placeholder="QUANTITY 6" name="qty6" value="{{
+						request.form.quantity6 }}">
+					<input type="text" class="login-field" placeholder="DISCOUNT 6" name="discount6" value="{{
+						request.form.discount6 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 7" name="item7" value="{{
+				request.form.item7 }}">
+				<input type="text" class="login-field" placeholder="PRICE 7" name="price7" value="{{
+				 request.form.price7 }}">
+			 <input type="text" class="login-field" placeholder="QUANTITY 7" name="qty7" value="{{
+					request.form.quantity7 }}">
+			 <input type="text" class="login-field" placeholder="DISCOUNT 7" name="discount7" value="{{
+					 request.form.discount7 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 8" name="item8" value="{{
+				request.form.item8 }}">
+				<input type="text" class="login-field" placeholder="PRICE 8" name="price8" value="{{
+				 request.form.price8 }}">
+			 <input type="text" class="login-field" placeholder="QUANTITY 8" name="qty8" value="{{
+					request.form.quantity8 }}">
+			 <input type="text" class="login-field" placeholder="DISCOUNT 8" name="discount8" value="{{
+					 request.form.discount8 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 9" name="item9" value="{{
+				request.form.item9 }}">
+				<input type="text" class="login-field" placeholder="PRICE 9" name="price9" value="{{
+				 request.form.price9 }}">
+			 <input type="text" class="login-field" placeholder="QUANTITY 9" name="qty9" value="{{
+					request.form.quantity9 }}">
+			 <input type="text" class="login-field" placeholder="DISCOUNT 9" name="discount9" value="{{
+					 request.form.discount9 }}">
+			</div>
+			<div class="control-group">
+					<input type="text" class="login-field" placeholder="ITEM 10" name="item10" value="{{
+				request.form.item10 }}">
+				<input type="text" class="login-field" placeholder="PRICE 10" name="price10" value="{{
+				 request.form.price10 }}">
+			 <input type="text" class="login-field" placeholder="QUANTITY 10" name="qty10" value="{{
+					request.form.quantity10 }}">
+			 <input type="text" class="login-field" placeholder="DISCOUNT 10" name="discount10" value="{{
+					 request.form.discount10 }}">
+			</div>
+			<div class="control-group">
+			<label class="login-field-icon fui-lock" for="login-pass"></label>
+					<input type="text" class="login-field" placeholder="SI NUMBER (mandatory)" name="sino" value="{{
+							request.form.sino }}">
+					<input type="text" class="login-field" placeholder="Check" name="checkno" value="{{
+							request.form.checkno }}">
+					<input type="text" class="login-field" placeholder="Card Number" name="cardno" value="{{
+							request.form.cardno }}">
+			</div>
+			<input class="btn btn-default" type="submit" value="Send" class="btn btn-primary btn-large btn-block">
+			  </div>
+		</form>
+<!-- pagination.links  -->
+		{% else %}
+		<strong>Ooops</strong>
+		{% endif %}
+		{% if error %}
+		{{ error }}
+		{% endif %}
+		{% endblock %}
+	</body>
+</html>
