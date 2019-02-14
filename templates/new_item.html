@@ -1,93 +1,205 @@
+
+<!-- ref LIKE '%vc%' -->
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Floor Center</title>
-		<link rel="stylesheet" type="text/css" href="/static/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="/static/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="/static/css/component.css" />
-		<link rel="stylesheet" type="text/css" href="/static/style.css" />
-		<script src="/static/js/modernizr.custom.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>FLOORCENTER</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="static/style1.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 		<script
-	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	src="/static/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous"></script>
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-	</head>
 
+</head>
+{% block body %}
+{% if session['api_session_token'] %}
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>FLOOR CENTER</h3>
+            </div>
 
-	<body>
-		{% block body %}
-		{% if session['api_session_token'] %}
-		<div class="container">
-			<ul id="gn-menu" class="gn-menu-main">
-				<li class="gn-trigger">
-					<a class="gn-icon gn-icon-menu"><span>Menu</span></a>
-					<nav class="gn-menu-wrapper">
-						<div class="gn-scroller">
-							<ul class="gn-menu">
-								</li>
-								<li><a href="" class="gn-icon gn-icon-archive">Aurora</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Baliuag</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Cabanatuan 1</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Cabanatuan 2</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Marcos</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Mindanao</a></li>
-								<li><a href="" class="gn-icon gn-icon-archive">Zabarte</a></li>
-							</ul>
-						</div><!-- /gn-scroller -->
-					</nav>
-				</li>
-				<li><a class="codrops-icon codrops-icon-prev" href="/panel"><span>Homepage</span></a></li>
-				<li><a href="/new_item">Create a new item</a></li>
+            <ul class="list-unstyled components">
+                <p>menu</p>
+                <li class="active">
+                    <a href="#aurora" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Aurora</a>
+                    <ul class="collapse list-unstyled" id="aurora">
+                        <li>
+                            <a href="#">Incoming</a>
+                        </li>
+                        <li>
+                            <a href="#">Outgoing</a>
+                        </li>
+                    </ul>
+                </li>
 
-				<li><a class="codrops-icon codrops-icon-drop" href="http://"><span>Edit item</span></a></li>
-			</ul>
-			<header>
-				<form action="" method="post">
-					<div class="login">
-					<div class="login-screen">
-					<div class="app-title">
-						<h1>Add new product</h1>
-					</div>
-					<div class="login-form">
-					<div class="control-group">
-					<input type="text" class="login-field" placeholder="Item Code" name="ref" value="{{
-						request.form.ref }}">
-					<label class="login-field-icon fui-user" for="login-name"></label></div>
-					<div class="control-group">
-					 <input type="text" class="login-field" placeholder="Description" name="label" value="{{
-						request.form.label }}">
-						<div class="control-group">
-							<input type="text" class="login-field" placeholder="size" name="size" value="{{
-							request.form.size }}">
-									<input type="text" class="login-field" placeholder="price" name="price" value="{{
- 									request.form.price }}">
-					<label class="login-field-icon fui-lock" for="login-pass"></label></div>
-					<input class="btn btn-default" type="submit" value="Send" class="btn btn-primary btn-large btn-block">
-				</form>
+								<li class="active">
+                    <a href="#baliuag" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Baliuag</a>
+                    <ul class="collapse list-unstyled" id="baliuag">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
 
-			</header>
-		</div><!-- /container -->
-		<script src="/static/js/classie.js"></script>
-		<script src="/static/js/gnmenu.js"></script>
-		<script>
-			new gnMenu( document.getElementById( 'gn-menu' ) );
+								<li class="active">
+                    <a href="#cab1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cabanatuan 1</a>
+                    <ul class="collapse list-unstyled" id="cab1">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
 
-		    $(document).ready( function () {
-		    $('#table_id').DataTable();
-		} );
-		</script>
+								<li class="active">
+                    <a href="#cab2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cabanatuan 2</a>
+                    <ul class="collapse list-unstyled" id="cab2">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
 
-		{% else %}
-		<strong>Oops</strong>
-		{% endif %}
-		{% if error %}
-		{{ error }} Login First
-		{% endif %}
-		{% endblock %}
-	</body>
+								<li class="active">
+                    <a href="#marcos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Marcos</a>
+                    <ul class="collapse list-unstyled" id="marcos">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
+
+								<li class="active">
+                    <a href="#mindanao" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mindanao</a>
+                    <ul class="collapse list-unstyled" id="mindanao">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
+
+								<li class="active">
+                    <a href="#zabarte" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Zabarte</a>
+                    <ul class="collapse list-unstyled" id="zabarte">
+											<li>
+													<a href="#">Incoming</a>
+											</li>
+											<li>
+													<a href="#">Outgoing</a>
+											</li>
+                    </ul>
+                </li>
+
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="panel">Panel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="new_item">New Item</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+<center>
+						<form action="" method="post">
+								<h1>Add new product</h1>
+							<P><input type="text" placeholder="Item Code" name="ref" value="{{
+								request.form.ref }}">
+							 <P><input type="text" placeholder="Description" name="label" value="{{
+								request.form.label }}">
+									<P><input type="text" placeholder="size" name="size" value="{{
+									request.form.size }}">
+											<P><input type="text" placeholder="price" name="price" value="{{
+											request.form.price }}">
+							<P><input type="submit" value="Send" class="btn btn-primary btn-large btn-block">
+						</form>
+</center>
+							{% else %}
+							<strong>Oops</strong>
+							{% endif %}
+							{% if error %}
+							{{ error }} Login First
+							{% endif %}
+							{% endblock %}
+            <div class="line"></div>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
 </html>
